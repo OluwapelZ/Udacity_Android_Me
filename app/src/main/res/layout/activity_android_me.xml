@@ -37,6 +37,18 @@
             android:id="@+id/header_container"
             android:layout_gravity="center"
             />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/body_container"
+            android:layout_gravity="center"
+            />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/leg_container"
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 

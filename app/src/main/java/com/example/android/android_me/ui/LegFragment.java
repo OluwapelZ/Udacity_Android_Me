@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.android.android_me.R;
-import com.example.android.android_me.data.AndroidImageAssets;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ import java.util.List;
  * Created by oluwapelumi.olaoye on 3/24/18.
  */
 
-public class BodyPartFragment extends Fragment {
+public class LegFragment extends Fragment {
 
     private List<Integer> mImageIds;
     private int mListIndex;
@@ -26,24 +25,23 @@ public class BodyPartFragment extends Fragment {
     private String IMAGE_ID_LIST = "imageList";
     private String IMAGE_ID = "image";
 
-    public BodyPartFragment() {
+
+    public void LegFragment() {
 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if(savedInstanceState != null) {
             mListIndex = savedInstanceState.getInt(IMAGE_ID);
             mImageIds = savedInstanceState.getIntegerArrayList(IMAGE_ID_LIST);
         }
 
-        View rootView = inflater.inflate(R.layout.fragment_body_part, parent, false);
+        View rootView = inflater.inflate(R.layout.fragment_body_part, container, false);
 
-        //Reference to the image view in fragment layout.
         final ImageView imageView = (ImageView) rootView.findViewById(R.id.body_part_image);
 
-        //Set image resource
         if(mImageIds != null) {
             imageView.setImageResource(mImageIds.get(mListIndex));
 
@@ -62,7 +60,6 @@ public class BodyPartFragment extends Fragment {
             Log.v(TAG, "This fragment has a null list of image id's");
         }
 
-        //Return root view
         return rootView;
     }
 
@@ -79,4 +76,5 @@ public class BodyPartFragment extends Fragment {
         currentState.putIntegerArrayList(IMAGE_ID_LIST, (ArrayList<Integer>) mImageIds);
         currentState.putInt(IMAGE_ID, mListIndex);
     }
+
 }
