@@ -34,7 +34,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@color/colorPrimaryDark"
-                android:padding="16dp"
+                android:padding="5dp"
                 android:text="Next" />
 
         </LinearLayout>
