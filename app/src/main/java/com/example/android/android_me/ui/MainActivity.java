@@ -17,7 +17,7 @@ import com.example.android.android_me.data.AndroidImageAssets;
  * Created by oluwapelumi.olaoye on 3/24/18.
  */
 
-public class MainActivity extends AppCompatActivity implements MasterListFragment.OnImageClickListener{
+public class MainActivity extends AppCompatActivity implements MasterListFragment.OnImageClickListener {
 
     public int headIndex, bodyIndex, legIndex;
     private boolean mTwoPane;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(findViewById(R.id.android_me_linear_layout) != null) {
+        if (findViewById(R.id.android_me_linear_layout) != null) {
 
             mTwoPane = true;
 
@@ -67,8 +67,7 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
             fragmentManager.beginTransaction()
                     .add(R.id.leg_container, legFragment)
                     .commit();
-        }
-        else {
+        } else {
             mTwoPane = false;
         }
 
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
 
         int indexList = position - (12 * bodyPartNumber);
 
-        if(mTwoPane) {
+        if (mTwoPane) {
             BodyPartFragment newFragment = new BodyPartFragment();
             BodyFragment bodyFragment = new BodyFragment();
             LegFragment legFragment = new LegFragment();
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
                     bodyFragment.setImageIndex(indexList);
 
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.header_container, bodyFragment)
+                            .replace(R.id.body_container, bodyFragment)
                             .commit();
                     break;
                 case 2:
@@ -109,21 +108,28 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
                     legFragment.setImageIndex(indexList);
 
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.header_container, legFragment)
+                            .replace(R.id.leg_container, legFragment)
                             .commit();
                     break;
-                default: break;
+                default:
+                    break;
             }
-        }
+        } else {
 
-        switch (bodyPartNumber) {
-            case 0: headIndex = indexList;
-                break;
-            case 1: bodyIndex = indexList;
-                break;
-            case 2: legIndex = indexList;
-                break;
-            default: break;
+            switch (bodyPartNumber) {
+                case 0:
+                    headIndex = indexList;
+                    break;
+                case 1:
+                    bodyIndex = indexList;
+                    break;
+                case 2:
+                    legIndex = indexList;
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         Bundle bundle = new Bundle();
